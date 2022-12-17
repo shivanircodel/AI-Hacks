@@ -1,0 +1,86 @@
+classdef ai < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure    matlab.ui.Figure
+        HTML        matlab.ui.control.HTML
+        PlayButton  matlab.ui.control.StateButton
+        Image       matlab.ui.control.Image
+    end
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Image clicked function: Image
+        function ImageClicked(app, event)
+            
+        end
+
+        % Value changed function: PlayButton
+        function PlayButtonValueChanged(app, event)
+            value = app.PlayButton.Value;
+            app.UIFigure.Visible = 'off';
+            Hangman_AI();
+            close(app.UIFigure)
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure and hide until all components are created
+            app.UIFigure = uifigure('Visible', 'off');
+            app.UIFigure.Position = [100 100 640 480];
+            app.UIFigure.Name = 'MATLAB App';
+
+            % Create Image
+            app.Image = uiimage(app.UIFigure);
+            app.Image.ImageClickedFcn = createCallbackFcn(app, @ImageClicked, true);
+            app.Image.Position = [97 142 431 355];
+            app.Image.ImageSource = 'pixil-frame-0.png';
+
+            % Create PlayButton
+            app.PlayButton = uibutton(app.UIFigure, 'state');
+            app.PlayButton.ValueChangedFcn = createCallbackFcn(app, @PlayButtonValueChanged, true);
+            app.PlayButton.Text = 'Play';
+            app.PlayButton.Position = [235 95 100 23];
+
+            % Create HTML
+            app.HTML = uihtml(app.UIFigure);
+            app.HTML.HTMLSource = 'Press the button to play AI Hangman';
+            app.HTML.Position = [35 79 100 100];
+            app.HTML.Data = 'https://replit.com/@Shivthecodel/AIHangman#index.html';
+
+            % Show the figure after all components are created
+            app.UIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = ai
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end
