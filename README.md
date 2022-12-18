@@ -13,7 +13,7 @@ I built this game using MATLAB and the app designer app in matlab.
 Originally, I was having trouble getting the buttons to work in the appdesigner, but was then able to figure out what to code inside of it to get it to work. I also wasn't initially able to get the dashes to appear so the user knows how many letters was in that word but was eventually able to fix it.
 
 ## Accomplishments that we're proud of
-I am proud that I was able to make an entire MATLAB game in one weekend and completely learn how to use app designer to make the complete app. I am also now as familiar with making apps as I am for websites so this helped me realize that I am fully capable of making complete apps in future Hackathons.
+I am proud that I was able to make an entire MATLAB game in one weekend and completely learn how to use app designer to make the complete app. I am also now as familiar with making apps as I am for websites so this helped me realize that I am fully capable of making complete apps in future Hackathons. It has also been a few months since I participated in a Hackathon so I am proud that I was able to create a MATLAB app by myself within time.
 
 ## What we learned
 I learned how to use appdesiner to make complete apps in MATLAB and use AI in MATLAB.
